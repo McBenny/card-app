@@ -4,6 +4,11 @@ import profilePicture from '../../assets/profile.svg';
 
 import './styles.scss';
 
+/**
+ * Displays the main Header of the page. Full static. Has some responsiveness through the buttons on the right-hand side.
+ *
+ * Uses several times the `<Button />` component.
+ */
 function Header() {
     return (
         <header className="header">

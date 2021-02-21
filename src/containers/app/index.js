@@ -9,6 +9,14 @@ import BackToTop from '../../components/back-to-top';
 
 import './styles.scss';
 
+/**
+ * This is the assembled page showing:
+ *
+ * - `<Header />`
+ * - `<Nav />`
+ * - Set of `<Card />`s
+ * - `<Footer />`
+ */
 function App() {
     const getDataUrl = '/data/data.json';
     const [cardsData, setCardsData] = useState([]);
@@ -22,14 +30,13 @@ function App() {
     }, []);
 
     return (
-        <div className="app" id="top">
+        <div className="app" id="top" tabIndex={-1}>
             <Header />
             <main>
                 <Nav />
                 <Cards data={cardsData} updateCards={setCardsData} />
             </main>
             <Footer />
-            <BackToTop />
         </div>
     );
 }

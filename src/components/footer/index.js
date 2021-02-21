@@ -1,8 +1,13 @@
 import './styles.scss';
+import BackToTop from '../back-to-top';
 
+/**
+ * Displays the footer of the application. Has some responsiveness (stacking or spreading of the 2 pieces of text).
+ */
 function Footer() {
     return (
         <footer className="footer">
+            <BackToTop />
             <p className="footer__copyright">
                 2019 @ NetFront
             </p>

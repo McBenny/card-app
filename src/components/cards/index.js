@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types';
+
 import Card from '../card';
 
 import './styles.scss';
-import PropTypes from 'prop-types';
 
 function Cards(props) {
     const { data: cards, updateCards } = props;
+    console.log(cards);
 
     const changeRating = (cardId, newRating) => {
         const updatedCardsContent = cards[0].data.cards.map(card => {
@@ -54,7 +56,13 @@ function Cards(props) {
 }
 
 Cards.propTypes = {
+    /**
+     * List of the cards to display, path is a bit complex: `[{data:{cards:[...]}}]`
+     */
     data: PropTypes.arrayOf(PropTypes.object),
+    /**
+     * Function to update the state maintained in the parent component. Allows for updating the ratings.
+     */
     updateCards: PropTypes.func
 };
 
