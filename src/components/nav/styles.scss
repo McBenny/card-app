@@ -1,0 +1,53 @@
+@import './../../styles/variables';
+
+.nav {
+    grid-area: nav;
+    background-color: $nav-bg-colour;
+    padding: 1rem 0;
+
+    &__content {
+        margin: 0 $min-margin;
+
+        @media screen and (min-width: calc(#{$break-large} + (#{$min-margin} * 2))) {
+            margin: 0 auto;
+            max-width: $break-large;
+        }
+    }
+
+    &__breadcrumbs {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__breadcrumb {
+        display: inline-block;
+        margin-right: 0.5rem;
+
+        &:first-child .nav__link {
+            margin-left: 0;
+        }
+    }
+
+    &__link {
+        margin: 0 0.5rem;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &::after {
+            display: inline;
+            float: right;
+            content: '>';
+        }
+    }
+
+    &__title {
+        margin: 0;
+        font-size: $font-size-h1;
+        font-weight: 700;
+    }
+}

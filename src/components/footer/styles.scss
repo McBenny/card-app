@@ -1,0 +1,45 @@
+@import '../../styles/variables';
+
+.footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    height: 4rem;
+    background-color: $footer-bg-colour;
+    padding: 1rem 2rem;
+    text-align: center;
+    color: $text-inverted-colour;
+
+    @media screen and (min-width: $break-tablet-landscape) {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    &__copyright {
+        text-transform: uppercase;
+    }
+
+    &__link-item {
+        border-right: 1px solid;
+        display: inline-block;
+        padding: 0 1em;
+
+        &:last-child {
+            border: 0;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
+    }
+}

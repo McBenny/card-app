@@ -1,0 +1,10 @@
+.app {
+    display: grid;
+    grid-template-rows: 6rem 1fr 6rem;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    position: relative;
+    min-height: 100vh;
+}

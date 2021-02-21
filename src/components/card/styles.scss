@@ -1,0 +1,63 @@
+@import '../../styles/variables';
+
+$gap: 2rem;
+
+.card {
+    position: relative;
+    border: 1px solid $border-colour;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &__illustration {
+        background: url(../../assets/image-placement.svg) no-repeat 50% 50% $card-bg;
+        background-size: 40%;
+        padding-top: 75%;
+    }
+
+    &__content {
+        padding: 1rem;
+    }
+
+    &__status {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        border-radius: 1rem;
+        padding: 0.25rem 0.75rem;
+        line-height: 1.5em;
+        font-weight: 600;
+        color: $text-inverted-colour;
+
+        &--published {
+            background-color: $published-colour;
+        }
+
+        &--unpublished {
+            background-color: $unpublished-colour;
+        }
+
+        @media screen and (min-width: $break-tablet-portrait) {
+            font-size: 0.875rem;
+        }
+
+        @media screen and (min-width: calc(#{$break-large} + (#{$min-margin} * 2))) {
+            font-size: 0.75rem;
+        }
+    }
+
+    &__title {
+        margin-bottom: 0.25rem;
+        font-size: $font-size-h2;
+        font-weight: 700;
+    }
+
+    &__rating {
+        margin-top: 0.25rem;
+        font-weight: 700;
+    }
+}

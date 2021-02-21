@@ -1,0 +1,18 @@
+@import './normalise';
+@import './reset';
+@import './fonts';
+@import './variables';
+@import './utils';
+@import './mixins';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: $app-bg-colour;
+
+    font-family: Roboto, Arial, sans-serif;
+    font-weight: 300;
+}

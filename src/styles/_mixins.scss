@@ -1,0 +1,44 @@
+@import './variables';
+
+@mixin sr-only {
+    position: absolute;
+    margin: -1px;
+    border: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: polygon(0 0, 0 0, 0 0);
+    padding: 0;
+    white-space: nowrap;
+}
+
+@mixin font-default {
+    line-height: 1.25rem;
+    font-family: "Open Sans", sans-serif !important;
+    font-size: 0.875rem !important;    // 14px
+    font-weight: 400;
+    color: $text-colour;
+}
+
+@mixin typo__title--1 {
+    line-height: 1.25em;
+    font-family: "Proxima Nova Alt", sans-serif;
+    font-size: 2rem;
+}
+
+@mixin typo__text {
+    @include font-default;
+}
+
+@mixin toolSize {
+    --tool-size: #{$tool-icon-size-xlarge};
+
+    @media screen and (min-width: $break-tablet-portrait) {
+        --tool-size: #{$tool-icon-size-large};
+    }
+
+    @media screen and (min-width: calc(#{$break-large} + (#{$min-margin} * 2))) {
+        --tool-size: #{$tool-icon-size-medium};
+    }
+}

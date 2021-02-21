@@ -1,0 +1,29 @@
+@import './../../styles/variables';
+@import '../../styles/mixins';
+
+.header {
+    @include toolSize;
+
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $tool-icon-size-xlarge;
+    background-image: linear-gradient(to right, $colour-brand, $colour-brand-alt);
+    padding: 1rem;
+
+    &__logo {
+        width: $tool-icon-size-xlarge;
+    }
+
+    &__tool {
+        display: inline-block;
+        margin: 0 1rem;
+        vertical-align: text-top;
+    }
+
+    &__profile-picture {
+        display: block;
+        width: var(--tool-size);
+    }
+}

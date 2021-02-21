@@ -1,0 +1,39 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.button {
+    @include toolSize;
+
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+
+    &--menu {
+        width: var(--tool-size);
+        height: var(--tool-size);
+        background-image: url(../../assets/menu-dash.svg);
+        background-size: cover;
+
+    }
+
+    &--profile {
+        border-radius: 50%;
+        width: var(--tool-size);
+    }
+
+    &--star {
+        width: 1.2rem;
+        height: 1.2rem;
+        background: url(../../assets/single-star-grey.svg) no-repeat;
+        background-size: contain;
+        vertical-align: text-bottom;
+
+        &--gold {
+            background-image: url(../../assets/single-star-gold.svg);
+        }
+
+        &:focus {
+            outline: 1px dashed $border-colour;
+        }
+    }
+}

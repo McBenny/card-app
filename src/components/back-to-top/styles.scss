@@ -1,0 +1,12 @@
+@import '../../styles/variables';
+
+.back-to-top {
+    position: fixed;
+    bottom: 5rem;
+    right: 2rem;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    background: url(../../assets/to-top.svg) no-repeat 50% 50%;
+    background-size: 135%;
+}

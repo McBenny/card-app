@@ -1,0 +1,59 @@
+//------------------------------------------------
+// Responsive break points
+$break-large: 1200px;
+$break-tablet-landscape: 1024px;
+//$break-medium: 992px;
+//$break-small: 768px;
+$break-tablet-portrait: 768px;
+//$break-extra-small: 480px;
+
+//------------------------------------------------
+// Dimensions
+$font-size-base: 1rem;      // =12pt
+$font-size-h1: 2.1666rem;   // =26pt
+$font-size-h2: 1.8333rem;   // =22pt
+$font-size-h3: 1.25rem;     // =15pt
+
+$min-margin: 32px;
+
+$tool-icon-size-medium: 2rem;
+$tool-icon-size-large: 2.5rem;
+$tool-icon-size-xlarge: 4rem;
+
+//
+//------------------------------------------------
+//  Colour palette
+$black-00: #000;
+$black-01: #2a2e2f;
+
+$green-00: #50bd9c;
+
+$red-00: #e25169;
+
+$white-00: #fff;
+$white-01: #e1e1e1;
+
+$yellow-00: #d8e022;
+
+//-----------------------
+// Colour usage
+// Primary colours
+$colour-brand: $green-00;
+$colour-brand-alt: $yellow-00;
+
+// Interface
+$nav-bg-colour: $white-01;
+$footer-bg-colour: $black-01;
+
+//_________________
+// General
+$app-bg-colour: $white-00;
+$text-colour: $black-00;
+$text-inverted-colour: $white-00;
+$border-colour: $white-01;
+
+$published-colour: $green-00;
+$unpublished-colour: $red-00;
+
+// Cards
+$card-bg: $white-01;
