@@ -5,7 +5,6 @@ import Header from '../../components/header';
 import Nav from '../../components/nav';
 import Cards from '../../components/cards';
 import Footer from '../../components/footer';
-import BackToTop from '../../components/back-to-top';
 
 import './styles.scss';
 
@@ -18,7 +17,7 @@ import './styles.scss';
  * - `<Footer />`
  */
 function App() {
-    const getDataUrl = '/data/data.json';
+    const getDataUrl = 'https://raw.githubusercontent.com/netfront/UI-code-challenge/master/data.json';
     const [cardsData, setCardsData] = useState([]);
     const loadCardsData = useCallback(async () => {
         const response = await axios.get(getDataUrl);
