@@ -1,68 +1,49 @@
 import Card from '../card';
-import './styles.scss';
 
-function Cards() {
-    const cards = [
-        {
-            "data": {
-                "cards": [
-                    {
-                        "title" : "App title 1",
-                        "published": true,
-                        "user": "Netfront",
-                        "rating": 3.2
-                    },
-                    {
-                        "title" : "App title 2",
-                        "published": true,
-                        "user": "Netfront",
-                        "rating": 4.8
-                    },
-                    {
-                        "title" : "App title 3",
-                        "published": false,
-                        "user": "Netfront",
-                        "rating": 4.0
-                    },
-                    {
-                        "title" : "App title 4",
-                        "published": true,
-                        "user": "Netfront",
-                        "rating": 3.8
-                    },
-                    {
-                        "title" : "App title 5",
-                        "published": true,
-                        "user": "Netfront",
-                        "rating": 3.8
-                    },
-                    {
-                        "title" : "App title 6",
-                        "published": true,
-                        "user": "Netfront",
-                        "rating": null
-                    },
-                    {
-                        "title" : "App title 7",
-                        "published": true,
-                        "user": "Netfront",
-                        "rating": 4.0
-                    },
-                    {
-                        "title" : "App title 8",
-                        "published": true,
-                        "user": "Netfront",
-                        "rating": 3.8
-                    }
-                ]
+import './styles.scss';
+import PropTypes from 'prop-types';
+
+function Cards(props) {
+    const { data: cards, updateCards } = props;
+
+    const changeRating = (cardId, newRating) => {
+        const updatedCardsContent = cards[0].data.cards.map(card => {
+            if (card.title === cardId) {
+                // Not knowing how many ratings brought us to the current rating, we consider it as a single previous rating
+                // Proper situation would be to have the number of previous votes:
+                // const newAverage = ((card.rating || 0) + newRating) / ((card.numberOfVotes || 0) + 1)
+                const newAverage = ((card.rating || newRating) + newRating) / 2;
+                return {
+                    ...card,
+                    rating: newAverage
+                }
             }
-        }
-    ];
+            return card;
+        });
+        updateCards([
+            {
+                data: {
+                    cards: updatedCardsContent
+                }
+            }
+        ]);
+    };
 
     const printCards = () => {
-        return cards[0].data.cards.map(card =>
-            <Card key={card.title} title={card.title} published={card.published} user={card.user} rating={card.rating} />
-        );
+        if (cards.length > 0) {
+            return cards[0].data.cards.map(card =>
+                <Card
+                    key={card.title}
+                    title={card.title}
+                    published={card.published}
+                    user={card.user}
+                    rating={card.rating}
+                    changeRating={changeRating}
+                />
+            );
+        } else {
+            return <p>Sorry, no data yet</p>;
+        }
     };
 
     return (
@@ -71,5 +52,10 @@ function Cards() {
         </div>
     );
 }
+
+Cards.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object),
+    updateCards: PropTypes.func
+};
 
 export default Cards;

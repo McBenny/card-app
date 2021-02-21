@@ -5,7 +5,7 @@ import Star from '../star';
 import './styles.scss';
 
 function Card(props) {
-    const { title, published, user, rating } = props;
+    const { title, published, user, rating, changeRating } = props;
     const status = published ? 'Published' : 'Unpublished';
     const statusClass = published ? 'published' : 'unpublished';
     const ratingDisplay = rating ? (Math.round(rating * 10) / 10).toFixed(1) : 'No review';
@@ -14,7 +14,15 @@ function Card(props) {
         const ratingInteger = Math.floor(parseInt(rating, 10));
         let starsTemplates = [];
         for (let i = 0; i < starsNumber; i += 1) {
-            starsTemplates.push(<Star key={`${title}-${i}`} golden={i < ratingInteger} value={i + 1} />);
+            starsTemplates.push(
+                <Star
+                    key={`${title}-${i}`}
+                    golden={i < ratingInteger}
+                    value={i + 1}
+                    cardId={title}
+                    handleClick={changeRating}
+                />
+            );
         }
         return starsTemplates;
     }
@@ -41,7 +49,8 @@ Card.propTypes = {
     title: PropTypes.string,
     published: PropTypes.bool,
     user: PropTypes.string,
-    rating: PropTypes.number
+    rating: PropTypes.number,
+    changeRating: PropTypes.func
 };
 
 export default Card;
