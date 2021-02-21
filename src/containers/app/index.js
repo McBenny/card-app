@@ -17,7 +17,7 @@ import './styles.scss';
  * - `<Footer />`
  */
 function App() {
-    const getDataUrl = 'https://raw.githubusercontent.com/netfront/UI-code-challenge/master/data.json';
+    const getDataUrl = 'https://raw.githubusercontent.com/McBenny/card-app/develop/data/data.json';
     const [cardsData, setCardsData] = useState([]);
     const loadCardsData = useCallback(async () => {
         const response = await axios.get(getDataUrl);
